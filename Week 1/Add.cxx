@@ -8,6 +8,12 @@
     using std::cout;
 #endif
 
+void Solution(void) {
+    int a, b;
+    cin >> a >> b;
+    cout << a + b << std::endl;
+}
+
 int main() {
     std::string line;
     #ifdef JUDGE
@@ -16,9 +22,7 @@ int main() {
             return 1;
         }
     #endif
-    while (std::getline(cin, line)) {
-        cout << line;
-    }
+    Solution();
     #ifdef JUDGE
         cin.close();
         cout.close();
