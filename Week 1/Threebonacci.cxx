@@ -9,9 +9,23 @@
 #endif
 
 void Solution(void) {
-    while (std::getline(cin, line)) {
-        cout << line;
+    long long int a0, a1, a2, an, n;
+    cin >> a0 >> a1 >> a2 >> n;
+    if (n == 0) {
+        an = a0;
+    } else if (n == 1) {
+        an = a1;
+    } else if (n == 2) {
+        an = a2;
+    } else {
+        for (int i = 2; i < n; i++) {
+            an = a2 + a1 - a0;
+            a0 = a1;
+            a1 = a2;
+            a2 = an;
+        }
     }
+    cout << an << std::endl;
 }
 
 int main() {
