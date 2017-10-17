@@ -1,18 +1,27 @@
-#include <fstream>
+#include <iostream>
+#ifdef JUDGE
+    #include <fstream>
+    std::ifstream cin("input.txt");
+    std::ofstream cout("output.txt");
+#else
+    using std::cin;
+    using std::cout;
+#endif
 
 int main() {
-    std::ifstream infile("input.txt", std::ios::in);
-    std::ofstream outfile("output.txt", std::ios::out);
-    if (! infile.is_open()) {
-        return 1;
-    }
     std::string line;
-    while (std::getline(infile, line)) {
-        if (outfile.is_open()) {
-            outfile << line;
+    #ifdef JUDGE
+        if (! cin.is_open() || ! cout.is_open()) {
+            std::cerr << "Failed to open connection to file" << std::endl;
+            return 1;
         }
+    #endif
+    while (std::getline(cin, line)) {
+        cout << line;
     }
-    infile.close();
-    outfile.close();
+    #ifdef JUDGE
+        infile.close();
+        outfile.close();
+    #endif
     return 0;
 }
