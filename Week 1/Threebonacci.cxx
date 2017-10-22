@@ -29,7 +29,6 @@ void Solution(void) {
 }
 
 int main() {
-    std::string line;
     #ifdef JUDGE
         if (! cin.is_open() || ! cout.is_open()) {
             std::cerr << "Failed to open connection to file" << std::endl;
