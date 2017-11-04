@@ -11,16 +11,16 @@
 void Solution(void) {
     int n;
     cin >> n;
-    int A[n], top = -1;
+    int A[n], front = -1, rear = -1;
     char flag;
     for (int i = 0; i < n; i++) {
         cin >> flag;
         switch (flag) {
             case '+':
-                cin >> A[++top];
+                cin >> A[++rear];
                 break;
             case '-':
-                cout << A[top--] << std::endl;
+                cout << A[++front] << std::endl;
         }
     }
 }
